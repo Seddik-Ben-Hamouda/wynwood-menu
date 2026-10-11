@@ -1,0 +1,26 @@
+/* Custom fonts — drop .woff2/.otf/.ttf files in assets/fonts/ to activate.
+   Currently falling back to Google Fonts (Fraunces + Inter). */
+
+:root{
+  /* colors sampled from the Wynwood Café logo */
+  --espresso:#3a1c0e; --terra:#b5531c; --caramel:#d9a45f; --cream:#fbf7f1; --sand:#f1e7d8; --card:#ffffff; --muted:#8a7565;
+  --f-logo:"Overals","Fraunces",Georgia,serif;
+  --f-head:"Awergyby","Fraunces",Georgia,serif;
+  --f-accent:"Tagstorm","Fraunces",Georgia,serif;
+  --f-block:"Elaesy Block Buster","Fraunces",Georgia,serif;
+  --f-body:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",system-ui,sans-serif;
+  --shadow:0 1px 2px rgba(58,28,14,.06),0 8px 24px rgba(58,28,14,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+html{background:var(--cream)}
+body{min-height:100svh;background:var(--cream);color:var(--espresso);font-family:var(--f-body);display:flex;justify-content:center;
+  -webkit-font-smoothing:antialiased}
+.lang{background:var(--sand);color:var(--espresso);font-size:12px;font-weight:600;padding:7px 14px;border-radius:99px}
+.btn{display:inline-block;font-weight:600;font-size:15px;padding:13px 22px;border-radius:99px;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn.solid{background:var(--espresso);color:#fff}
+.btn.soft{background:var(--sand);color:var(--espresso)}
+.btn.terra{background:var(--terra);color:#fff}

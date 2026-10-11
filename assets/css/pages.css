@@ -1,0 +1,579 @@
+@import url("fonts.css");
+
+.pwrap {
+  width: 100%;
+  max-width: 560px;
+  padding: env(safe-area-inset-top) 20px calc(40px + env(safe-area-inset-bottom))
+}
+
+.phead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0 6px
+}
+
+.back {
+  font-weight: 600;
+  color: var(--terra);
+  font-size: 16px
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0 18px
+}
+
+.hero-pic {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #fff;
+  box-shadow: var(--shadow);
+  background: var(--sand)
+}
+
+.hero-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
+.ptitle {
+  font-family: var(--f-logo);
+  font-weight: 700;
+  font-size: clamp(34px, 10vw, 48px);
+  line-height: 1;
+  text-align: center
+}
+
+.ptitle.solo {
+  text-align: left;
+  margin: 14px 0 20px
+}
+
+/* Apple-style segmented tabs */
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  gap: 4px;
+  padding: 5px;
+  margin: 0 0 22px;
+  background: rgba(241, 231, 216, .85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 14px;
+  overflow-x: auto;
+  scrollbar-width: none
+}
+
+.tabs::-webkit-scrollbar {
+  display: none
+}
+
+.tab {
+  flex: 1 0 auto;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 14px;
+  border-radius: 10px;
+  color: var(--muted);
+  white-space: nowrap
+}
+
+.tab.on {
+  background: #fff;
+  color: var(--espresso);
+  box-shadow: 0 1px 4px rgba(58, 28, 14, .15)
+}
+
+.group {
+  margin-bottom: 30px
+}
+
+.group h2 {
+  font-family: var(--f-accent);
+  font-size: 28px;
+  color: var(--terra);
+  margin: 0 2px 12px
+}
+
+.items {
+  display: grid;
+  gap: 12px
+}
+
+.item {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  background: var(--card);
+  border-radius: 22px;
+  padding: 10px;
+  box-shadow: var(--shadow)
+}
+
+.item-pic {
+  position: relative;
+  flex: 0 0 auto;
+  width: 96px;
+  height: 96px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--sand)
+}
+
+.item-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
+.item-body {
+  padding-right: 70px
+}
+
+.item h3 {
+  font-size: 17px;
+  font-weight: 600
+}
+
+.item p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 3px;
+  line-height: 1.35
+}
+
+.price {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--f-block);
+  font-size: 20px;
+  color: var(--terra);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1
+}
+
+.price small {
+  font-family: var(--f-body);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: 2px
+}
+
+.tag {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  background: var(--terra);
+  color: #fff;
+  font-family: var(--f-block);
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 99px
+}
+
+.note {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin: -6px 0 22px
+}
+
+.panel {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 22px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow)
+}
+
+.panel h2 {
+  font-family: var(--f-head);
+  font-size: 24px;
+  margin-bottom: 8px
+}
+
+.panel p {
+  line-height: 1.5
+}
+
+.rate {
+  margin-top: 10px;
+  color: var(--terra);
+  font-weight: 600
+}
+
+.hours {
+  list-style: none
+}
+
+.hours li {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--sand);
+  font-size: 16px
+}
+
+.hours li:last-child {
+  border: 0
+}
+
+.hours b {
+  color: var(--terra);
+  font-weight: 600
+}
+
+.perks {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px
+}
+
+.perks li {
+  background: var(--sand);
+  padding: 7px 13px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 600
+}
+
+.collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px
+}
+
+.collage img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: var(--shadow)
+}
+
+.collage img:first-child {
+  grid-column: span 2;
+  aspect-ratio: 16/10
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px
+}
+
+.pfoot {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  text-align: center
+}
+
+.pfoot p {
+  width: 100%;
+  font-family: var(--f-accent);
+  color: var(--muted);
+  margin-top: 12px
+}
+
+/* Hours full-screen mode */
+body.hours-fullscreen,
+body.hours-fullscreen html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden
+}
+
+body.hours-fullscreen .pwrap {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden
+}
+
+body.hours-fullscreen .hours-img {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100svh;
+  object-fit: cover;
+  display: block;
+  z-index: 0
+}
+
+.hours-phead {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: max(18px, env(safe-area-inset-top)) 16px 12px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .55) 0%, transparent 100%)
+}
+
+.hours-phead .back {
+  color: #fff
+}
+
+.hours-phead .lang {
+  color: #fff;
+  border-color: rgba(255, 255, 255, .5)
+}
+
+/* ── Address full-screen mode ── */
+body.addr-fullscreen,
+body.addr-fullscreen html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden
+}
+
+body.addr-fullscreen .pwrap {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  width: 100vw;
+  height: 100svh;
+  display: block;
+  overflow: hidden
+}
+
+/* Background photo */
+.addr-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100svh;
+  object-fit: cover;
+  display: block;
+  z-index: 0
+}
+
+/* Standard header overlaid — same look as all other pages */
+.addr-phead {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: max(18px, env(safe-area-inset-top)) 20px 12px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .55) 0%, transparent 100%)
+}
+
+.addr-phead .back {
+  color: #fff
+}
+
+.addr-phead .lang {
+  color: #fff;
+  border-color: rgba(255, 255, 255, .5)
+}
+
+/* Centered container — sits below the header, fills the rest */
+.addr-center {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: calc(max(18px, env(safe-area-inset-top)) + 52px);
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+/* Map card — narrower width, taller height */
+.addr-map-wrap {
+  width: 80%;
+  height: 520px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 3px solid #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .45)
+}
+
+.addr-map {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block
+}
+
+/* ═══════════════════════════════════════════
+   VIBE / ABOUT — full-screen diagonal gallery
+   ═══════════════════════════════════════════ */
+
+body.vg-page,
+body.vg-page html { margin: 0; padding: 0; overflow: hidden; }
+
+body.vg-page .pwrap {
+  margin: 0; padding: 0;
+  max-width: none; width: 100vw;
+  height: 100dvh; min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Outer wrapper — black background bleeds through gaps */
+.vg-wrap {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: #111;
+  overflow: hidden;
+}
+
+/* Each panel: stacked full-size, clipped to shape */
+.vg-panel {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.vg-panel img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.vg-panel:hover img { transform: scale(1.05); }
+
+/*
+  Diagonal geometry (all % are of the full 100vw × 100dvh viewport):
+  ┌────────────────────────────────────────┐  0%
+  │           Panel 1  (top)              │
+  │                              ╲        │  29%→32%
+  ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤  ~30%
+  │           Panel 2  (mid)              │
+  │                              ╲        │  60%→63%
+  ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤  ~61%
+  │  Panel 3 (BL)  ╲  Panel 4 (BR)      │
+  └────────────────────────────────────────┘  100%
+*/
+
+/* ── Panel 1: top band, diagonal bottom edge ── */
+.vg-1 {
+  clip-path: polygon(
+    0%   0%,
+    100% 0%,
+    100% 32%,
+    0%   29%
+  );
+}
+
+/* ── Panel 2: middle band, diagonal top & bottom ── */
+.vg-2 {
+  clip-path: polygon(
+    0%   29.5%,
+    100% 32.5%,
+    100% 63%,
+    0%   60%
+  );
+}
+
+/* ── Panel 3: bottom-left, diagonal top & right edges ── */
+.vg-3 {
+  clip-path: polygon(
+    0%   60.5%,
+    45%  61.5%,
+    47%  100%,
+    0%   100%
+  );
+}
+
+/* ── Panel 4: bottom-right, diagonal top & left edges ── */
+.vg-4 {
+  clip-path: polygon(
+    45.6% 61.5%,
+    100%  63.5%,
+    100%  100%,
+    47.6% 100%
+  );
+}
+
+/* ── Floating header overlaid on gallery ── */
+.vg-head {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 20;
+  padding: max(18px, env(safe-area-inset-top)) 20px 16px;
+  background: linear-gradient(180deg, rgba(0,0,0,.65) 0%, transparent 100%);
+}
+.vg-head .back  { color: #fff; }
+.vg-head .lang  { color: #fff; border-color: rgba(255,255,255,.45); }
+
+/* ── Lightbox ── */
+.vg-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, .95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.vg-lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.vg-lb-img {
+  max-width: 92vw;
+  max-height: 88dvh;
+  object-fit: contain;
+  border-radius: 10px;
+  transform: scale(0.88);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 24px 80px rgba(0,0,0,.6);
+}
+.vg-lightbox.open .vg-lb-img { transform: scale(1); }
+.vg-close {
+  position: absolute;
+  top: max(18px, env(safe-area-inset-top));
+  right: 18px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.14);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 51;
+}
+.vg-close:hover { background: rgba(255,255,255,.28); }

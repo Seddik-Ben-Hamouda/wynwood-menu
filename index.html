@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fbf7f1">
+  <meta name="description" content="Wynwood Coffee – café street art à Borj Cédria. Menu, horaires, adresse.">
+  <title>Wynwood Coffee | Borj Cédria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<main class="phone">
+  <header class="top">
+    <button id="langBtn" class="lang" data-i18n="lang">EN</button>
+    <img class="logo-img" src="assets/img/logo.png" alt="Wynwood Café">
+    <h1 class="logo">Wynwood Coffee</h1>
+    <p class="tagline" data-i18n="tagline"></p>
+    <p class="open" data-i18n="openNow"></p>
+  </header>
+
+  <p class="eyebrow" data-i18n="stories"></p>
+  <nav class="highlights" id="highlights" aria-label="Stories"></nav>
+  <p class="eyebrow" data-i18n="browse"></p>
+  <section class="covers" id="covers" aria-label="Categories"></section>
+  <footer class="foot" data-i18n="footer"></footer>
+</main>
+
+<!-- Instagram-style story viewer -->
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="viewerTitle">
+  <div class="viewer-box">
+    <div class="progress" id="progress"></div>
+    <div class="vhead">
+      <a id="avatar" class="avatar" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/img/logo.png" alt=""></a>
+      <a class="handle" href="https://www.instagram.com/wynwood_coffee/" target="_blank" rel="noopener">wynwood_coffee</a>
+      <span id="viewerTitle" class="vtitle"></span>
+      <button id="closeBtn" class="close" aria-label="Close">✕</button>
+    </div>
+    <img id="slideImg" class="slide-img" alt="">
+    <div id="slideBody" class="slide-body">
+      <b id="slideTag" class="stag" hidden></b>
+      <h2 id="slideName"></h2>
+      <p id="slideDesc"></p>
+      <span id="slidePrice" class="sprice" hidden></span>
+    </div>
+    <div id="cta" class="cta" hidden>
+      <p class="cta-big">STAY<br>WYNWOOD</p>
+      <p id="ctaHandle" class="cta-handle"></p>
+      <a id="ctaFollow" class="btn blue" target="_blank" rel="noopener"></a>
+      <a id="ctaMore" class="btn dark"></a>
+    </div>
+    <button id="tapPrev" class="tap tap-prev" aria-label="Previous"></button>
+    <button id="tapNext" class="tap tap-next" aria-label="Next"></button>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/stories.js"></script>
+</body>
+</html>
