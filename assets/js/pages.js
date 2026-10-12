@@ -61,41 +61,16 @@ function render() {
     return;
   }
 
-  /* ── About / Vibe: full-screen diagonal gallery ── */
+  /* ── About / Vibe: full-screen photo ── */
   if (page === "about") {
     document.body.classList.add("vg-page");
-    const imgs = [
-      "../assets/img/vibe-1.jpg",
-      "../assets/img/vibe-2.jpg",
-      "../assets/img/vibe-3.jpg",
-      "../assets/img/vibe-4.jpg",
-    ];
     main.innerHTML = `
-      <div class="vg-wrap">
-        <div class="vg-panel vg-1" data-full="${imgs[0]}"><img src="${imgs[0]}" alt=""></div>
-        <div class="vg-panel vg-2" data-full="${imgs[1]}"><img src="${imgs[1]}" alt=""></div>
-        <div class="vg-panel vg-3" data-full="${imgs[2]}"><img src="${imgs[2]}" alt=""></div>
-        <div class="vg-panel vg-4" data-full="${imgs[3]}"><img src="${imgs[3]}" alt=""></div>
-        <div class="vg-lightbox" id="vgLb">
-          <button class="vg-close" id="vgClose" aria-label="Close">&#x2715;</button>
-          <img class="vg-lb-img" id="vgLbImg" src="" alt="">
-        </div>
-      </div>
+      <img class="vg-image" src="../assets/img/vibe.png" alt="Ambiance de Wynwood Coffee">
       <header class="phead vg-head">
         <a class="back" href="../index.html">&#x2039; ${ui("back").replace("\u2190 ", "")}</a>
         <button id="langBtn" class="lang">${ui("lang")}</button>
       </header>`;
 
-    /* Lightbox wiring */
-    const lb = document.getElementById("vgLb");
-    const lbImg = document.getElementById("vgLbImg");
-    const openLb = src => { lbImg.src = src; lb.classList.add("open"); };
-    const closeLb = () => { lb.classList.remove("open"); };
-    document.querySelectorAll(".vg-panel").forEach(p =>
-      p.addEventListener("click", () => openLb(p.dataset.full)));
-    document.getElementById("vgClose").addEventListener("click", closeLb);
-    lb.addEventListener("click", e => { if (e.target === lb) closeLb(); });
-    document.addEventListener("keydown", e => { if (e.key === "Escape") closeLb(); });
     document.getElementById("langBtn").onclick = toggleLang;
     return;
   }
@@ -112,8 +87,7 @@ function render() {
   } else {
     html += `<h1 class="ptitle solo">${title}</h1>`;
   }
-  html += `<footer class="pfoot"><a class="btn solid" href="${SHOP.insta}" target="_blank" rel="noopener">${ui("follow")}</a>
-    <a class="btn soft" href="${SHOP.facebook}" target="_blank" rel="noopener">Facebook</a><p>${ui("footer")}</p></footer>`;
+  
   main.innerHTML = html;
   main.querySelectorAll("img[data-src]").forEach((im) => safeImg(im, im.dataset.src.startsWith("assets") ? "../" + im.dataset.src : im.dataset.src));
   document.getElementById("langBtn").onclick = toggleLang;

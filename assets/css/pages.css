@@ -438,36 +438,6 @@ body.vg-page .pwrap {
   overflow: hidden;
 }
 
-/* Outer wrapper — black background bleeds through gaps */
-.vg-wrap {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100dvh;
-  background: #111;
-  overflow: hidden;
-}
-
-/* Each panel: stacked full-size, clipped to shape */
-.vg-panel {
-  position: absolute;
-  inset: 0;
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.vg-panel img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform;
-}
-
-.vg-panel:hover img { transform: scale(1.05); }
-
 /*
   Diagonal geometry (all % are of the full 100vw × 100dvh viewport):
   ┌────────────────────────────────────────┐  0%
@@ -577,3 +547,23 @@ body.vg-page .pwrap {
   z-index: 51;
 }
 .vg-close:hover { background: rgba(255,255,255,.28); }
+
+body.vg-page {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+body.vg-page .pwrap {
+  width: 100%;
+  height: 100dvh;
+  min-height: 100vh;
+}
+
+.vg-image {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

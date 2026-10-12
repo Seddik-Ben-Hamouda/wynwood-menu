@@ -47,7 +47,7 @@ const UI = {
     route: "Itinéraire",
     reviews: "avis Google",
     prices: "Prix en dinars tunisiens (TND)",
-    footer: "Fait avec ♥ à Borj Cédria",
+
     lang: "EN",
     all: "Tout",
     swipe: "Touche à droite / gauche pour naviguer",
@@ -68,7 +68,6 @@ const UI = {
     route: "Directions",
     reviews: "Google reviews",
     prices: "Prices in Tunisian dinars (TND)",
-    footer: "Made with ♥ in Borj Cédria",
     lang: "FR",
     all: "All",
     swipe: "Tap right / left to navigate",
