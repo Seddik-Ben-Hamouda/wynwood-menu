@@ -13,7 +13,9 @@ function buildHome() {
     const b = document.createElement("button");
     b.className = "hl"; b.dataset.key = c.key;
     b.innerHTML = `<span class="hl-ring"><img alt=""></span><span class="hl-label"></span>`;
-    safeImg(b.querySelector("img"), c.cover.replace("w=700&h=700", "w=200&h=200"));
+    const image = b.querySelector("img");
+    image.alt = t(c.title);
+    safeImg(image, c.cover.replace("w=700&h=700", "w=200&h=200"));
     b.querySelector(".hl-label").textContent = t(c.title);
     b.onclick = () => openCat(c);
     hl.appendChild(b);
@@ -22,7 +24,9 @@ function buildHome() {
     a.className = "cover"; a.href = c.page;
     if (c.external) { a.target = "_blank"; a.rel = "noopener"; }
     a.innerHTML = `<span class="cover-pic"><img alt=""></span><span class="cover-label"></span>`;
-    safeImg(a.querySelector("img"), c.cover);
+    const coverImage = a.querySelector("img");
+    coverImage.alt = t(c.title);
+    safeImg(coverImage, c.cover);
     a.querySelector(".cover-label").textContent = t(c.title);
     covers.appendChild(a);
   });
@@ -61,6 +65,7 @@ function render() {
     $("ctaFollow").textContent = ui("follow");
     $("ctaFollow").href = SHOP.insta;
     $("ctaHandle").textContent = "@" + SHOP.handle;
+    $("ctaSlogan").textContent = ui("ctaSlogan");
     const more = $("ctaMore");
     more.textContent = ui("fullMenu");
     more.href = cat.page.startsWith("http") ? cat.page : cat.page;
@@ -88,6 +93,9 @@ $("tapNext").onclick = next;
 $("tapPrev").onclick = prev;
 $("closeBtn").onclick = closeViewer;
 $("avatar").href = SHOP.insta;
+$("avatar").querySelector("img").alt = SHOP.name;
+document.querySelector(".handle").href = SHOP.insta;
+document.querySelector(".handle").textContent = SHOP.handle;
 viewer.addEventListener("click", (e) => { if (e.target === viewer) closeViewer(); });
 $("langBtn").onclick = toggleLang;
 document.addEventListener("langchange", () => { buildHome(); if (!viewer.hidden) render(); });

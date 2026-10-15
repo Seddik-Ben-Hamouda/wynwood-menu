@@ -5,7 +5,7 @@
 /* ---------- header ---------- */
 .top{position:relative;text-align:center;padding:30px 0 14px}
 .top .lang{position:absolute;right:0;top:14px}
-.logo-img{width:120px;height:auto;margin:0 auto 10px}
+.logo-img{width:190px;height:auto;margin:0 auto 10px}
 .logo{font-family:var(--f-logo);font-weight:700;font-size:clamp(30px,9vw,42px);letter-spacing:.01em;color:var(--espresso)}
 .tagline{font-family:var(--f-accent);font-size:18px;color:var(--terra);margin-top:4px}
 .open{margin-top:8px;font-size:12px;color:var(--muted)}
@@ -70,7 +70,7 @@
 .viewer.is-cta .vhead{color:var(--espresso)}.viewer.is-cta .close{color:var(--espresso)}
 .viewer.is-cta .progress i{background:rgba(58,28,14,.15)}
 .viewer.is-cta .progress i.done::after,.viewer.is-cta .progress i.active::after{background:var(--espresso)}
-.cta-big{font-family:var(--f-logo);font-size:54px;line-height:.95;color:var(--terra)}
+.cta-big{font-family:var(--f-logo);font-size:54px;line-height:.95;color:var(--terra);white-space:pre-line}
 .cta-handle{font-family:var(--f-accent);font-size:22px;color:var(--muted)}
 .btn.blue{background:var(--espresso);color:#fff}
 .btn.dark{background:var(--sand);color:var(--espresso)}

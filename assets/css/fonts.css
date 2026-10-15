@@ -3,7 +3,7 @@
 
 :root{
   /* colors sampled from the Wynwood Café logo */
-  --espresso:#3a1c0e; --terra:#b5531c; --caramel:#d9a45f; --cream:#fbf7f1; --sand:#f1e7d8; --card:#ffffff; --muted:#8a7565;
+  --espresso:#3a1c0e; --terra:#b5531c; --caramel:#d9a45f; --cream:#ffffff; --sand:#f1e7d8; --card:#ffffff; --muted:#8a7565;
   --f-logo:"Overals","Fraunces",Georgia,serif;
   --f-head:"Awergyby","Fraunces",Georgia,serif;
   --f-accent:"Tagstorm","Fraunces",Georgia,serif;
@@ -24,3 +24,10 @@ body{min-height:100svh;background:var(--cream);color:var(--espresso);font-family
 .btn.solid{background:var(--espresso);color:#fff}
 .btn.soft{background:var(--sand);color:var(--espresso)}
 .btn.terra{background:var(--terra);color:#fff}
+
+.mobile-only-notice{display:none}
+@media (min-width:600px){
+  body>:not(.mobile-only-notice){display:none!important}
+  body>.mobile-only-notice{display:flex;position:fixed;inset:0;align-items:center;justify-content:center;padding:32px;
+    background:var(--cream);color:var(--espresso);font-family:var(--f-logo);font-size:clamp(24px,5vw,36px);text-align:center}
+}

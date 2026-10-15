@@ -2,7 +2,7 @@
 const page = document.body.dataset.page;
 const main = document.getElementById("main");
 const getCat = (k) => CATEGORIES.find((c) => c.key === k);
-const TABS = ["coffee", "cold", "sweets", "new"];
+const TABS = ["coffee", "cold", "hot", "sweets", "food", "new"];
 
 const card = (it) => `
   <article class="item">
@@ -17,26 +17,26 @@ const group = (c, withTitle) => `<section class="group" id="${c.key}">
 
 function tabs() {
   const link = (href, label, on) => `<a class="tab${on ? " on" : ""}" href="${href}">${label}</a>`;
-  return `<nav class="tabs" aria-label="Categories">` +
+  return `<nav class="tabs" aria-label="${ui("categoriesLabel")}">` +
     link("menu.html", ui("all"), page === "menu") +
     TABS.map((k) => link(`${k}.html`, t(getCat(k).title), page === k)).join("") + `</nav>`;
 }
 
 function render() {
-  const key = { menu: null, coffee: "coffee", cold: "cold", sweets: "sweets", new: "new", hours: "hours", address: "find", about: "vibe" }[page];
+  const key = { menu: null, coffee: "coffee", cold: "cold", hot: "hot", sweets: "sweets", food: "food", new: "new", hours: "hours", address: "find", about: "vibe" }[page];
   const cat = key ? getCat(key) : null;
-  const title = cat ? t(cat.title) : "Menu";
-  document.title = `${title} | Wynwood Coffee`;
+  const title = cat ? t(cat.title) : ui("menuTitle");
+  document.title = `${title} | ${SHOP.name}`;
 
   /* ── Hours: full-screen image only ── */
   if (page === "hours") {
     document.body.classList.add("hours-fullscreen");
     main.innerHTML = `
       <header class="phead hours-phead">
-        <a class="back" href="../index.html">&#x2039; ${ui("back").replace("\u2190 ", "")}</a>
+        <a class="back" href="../index.html">${ui("back")}</a>
         <button id="langBtn" class="lang">${ui("lang")}</button>
       </header>
-      <img src="../assets/img/hours.png" alt="Horaires Wynwood Coffee" class="hours-img">`;
+      <img src="../${IMAGES.hours.src}" alt="${t(IMAGES.hours.alt)}" class="hours-img">`;
     document.getElementById("langBtn").onclick = toggleLang;
     return;
   }
@@ -45,15 +45,15 @@ function render() {
   if (page === "address") {
     document.body.classList.add("addr-fullscreen");
     main.innerHTML = `
-      <img src="../assets/img/findus.png" alt="" class="addr-bg">
+      <img src="../${IMAGES.address.src}" alt="" class="addr-bg">
       <header class="phead addr-phead">
-        <a class="back" href="../index.html">&#x2039; ${ui("back").replace("\u2190 ", "")}</a>
+        <a class="back" href="../index.html">${ui("back")}</a>
         <button id="langBtn" class="lang">${ui("lang")}</button>
       </header>
       <div class="addr-center">
         <div class="addr-map-wrap">
           <iframe class="addr-map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.6410469645307!2d10.412191!3d36.7071627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd4fb405c2e4ef%3A0xa9dcbaba6a90f5ad!2sWynwood%20Coffee!5e0!3m2!1sfr!2stn!4v1791733896339!5m2!1sfr!2stn"
+            src="${PAGE_CONTENT.address.mapEmbed}"
             allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
       </div>`;
@@ -65,9 +65,9 @@ function render() {
   if (page === "about") {
     document.body.classList.add("vg-page");
     main.innerHTML = `
-      <img class="vg-image" src="../assets/img/vibe.png" alt="Ambiance de Wynwood Coffee">
+      <img class="vg-image" src="../${IMAGES.about.src}" alt="${t(IMAGES.about.alt)}">
       <header class="phead vg-head">
-        <a class="back" href="../index.html">&#x2039; ${ui("back").replace("\u2190 ", "")}</a>
+        <a class="back" href="../index.html">${ui("back")}</a>
         <button id="langBtn" class="lang">${ui("lang")}</button>
       </header>`;
 
@@ -75,14 +75,14 @@ function render() {
     return;
   }
 
-  let html = `<header class="phead"><a class="back" href="../index.html">‹ ${ui("back").replace("← ", "")}</a>
+  let html = `<header class="phead"><a class="back" href="../index.html">${ui("back")}</a>
     <button id="langBtn" class="lang">${ui("lang")}</button></header>`;
 
   const isMenu = page === "menu" || TABS.includes(page);
   if (isMenu) {
-    html += `<div class="hero">${cat ? `<span class="hero-pic"><img alt="" data-src="${cat.cover}"></span>` : `<span class="hero-pic"><img alt="" data-src="${LOGO}"></span>`}
+    html += `<div class="hero">${cat ? `<span class="hero-pic"><img alt="" data-src="${cat.cover}"></span>` : `<span class="hero-pic"><img alt="" data-src="${IMAGES.logo.src}"></span>`}
       <h1 class="ptitle">${title}</h1></div>${tabs()}`;
-    html += page === "menu" ? ["coffee", "cold", "sweets"].map((k) => group(getCat(k), true)).join("") : group(cat, false);
+    html += page === "menu" ? ["coffee", "cold", "hot", "sweets", "food"].map((k) => group(getCat(k), true)).join("") : group(cat, false);
     html += `<p class="note">${ui("prices")}</p>`;
   } else {
     html += `<h1 class="ptitle solo">${title}</h1>`;
