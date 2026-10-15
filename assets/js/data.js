@@ -144,7 +144,7 @@ const CATEGORIES = [
   {
     key: "cold", style: "blue", page: "pages/cold.html",
     title: { fr: "Boissons froides", en: "Cold drinks" },
-    cover: "https://res.cloudinary.com/a4pxy2z0/image/upload/v1792080562/cold-drinks.png",
+    cover: "https://res.cloudinary.com/a4pxy2z0/image/upload/v1792090477/cold-drinks.png",
     items: [
       {
         name: "Iced Latte", price: "7", img: U("photo-1461023058943-07fcbe16d735"),
