@@ -72,15 +72,16 @@ function render() {
     return;
   }
   const it = cat.items[idx];
-  safeImg(slideImg, it.img);
+  if (it.img) safeImg(slideImg, it.img);
+  else slideImg.removeAttribute("src");
   slideImg.alt = it.name;
   $("slideName").textContent = it.name;
-  $("slideDesc").textContent = t(it.desc);
+  $("slideDesc").textContent = t(it.desc) || "";
   const price = $("slidePrice"), tag = $("slideTag");
   price.hidden = !it.price;
   if (it.price) price.innerHTML = `${it.price}<small>${ui("tnd")}</small>`;
   tag.hidden = !it.tag; tag.textContent = it.tag || "";
-  [idx + 1].forEach((n) => { const nx = cat.items[n]; if (nx) new Image().src = nx.img; });
+  [idx + 1].forEach((n) => { const nx = cat.items[n]; if (nx && nx.img) new Image().src = nx.img; });
 }
 
 function next() { idx < total() - 1 ? (idx++, render()) : closeViewer(); }

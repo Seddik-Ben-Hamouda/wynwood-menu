@@ -78,6 +78,8 @@ const UI = {
     back: "‹ Retour",
     tnd: "TND",
     prices: "Prix en dinars tunisiens (TND)",
+    priceTbc: "Prix à confirmer",
+    supplements: "Suppléments",
     lang: "EN",
     all: "Tout",
     menuTitle: "Menu",
@@ -101,6 +103,8 @@ const UI = {
     back: "‹ Back",
     tnd: "TND",
     prices: "Prices in Tunisian dinars (TND)",
+    priceTbc: "Price to confirm",
+    supplements: "Extras",
     lang: "FR",
     all: "All",
     menuTitle: "Menu",
@@ -119,26 +123,10 @@ const CATEGORIES = [
     title: { fr: "Café", en: "Coffee" },
     cover: "https://res.cloudinary.com/a4pxy2z0/image/upload/v1792080017/coffee.png",
     items: [
-      {
-        name: "Espresso", price: "2,5", img: U("photo-1509365465985-25d11c17e812"),
-        desc: { fr: "Court, intense, torréfié frais.", en: "Short, intense, freshly roasted." }
-      },
-      {
-        name: "Capucin", price: "3", img: U("photo-1495474472287-4d71bcdd2085"),
-        desc: { fr: "Le classique tunisien, une goutte de lait.", en: "The Tunisian classic with a drop of milk." }
-      },
-      {
-        name: "Cappuccino", price: "5", img: U("photo-1514432324607-a09d9b4aefdd"),
-        desc: { fr: "Espresso, lait chaud, mousse onctueuse.", en: "Espresso, steamed milk, silky foam." }
-      },
-      {
-        name: "Latte Art", price: "6", img: U("photo-1541167760496-1628856ab772"),
-        desc: { fr: "Doux et crémeux, dessiné à la main.", en: "Smooth and creamy, hand-drawn." }
-      },
-      {
-        name: "Mocha", price: "7", img: U("photo-1509042239860-f550ce710b93"),
-        desc: { fr: "Café + chocolat. Le combo des fous.", en: "Coffee + chocolate. The dream combo." }
-      },
+      { name: "Express", price: "2,700" },
+      { name: "Américain", price: "2,800" },
+      { name: "Cappucin", price: "3,300" },
+      { name: "Direct", price: "3,500" },
     ],
   },
   {
@@ -146,22 +134,17 @@ const CATEGORIES = [
     title: { fr: "Boissons froides", en: "Cold drinks" },
     cover: "https://res.cloudinary.com/a4pxy2z0/image/upload/v1792090477/cold-drinks.png",
     items: [
-      {
-        name: "Iced Latte", price: "7", img: U("photo-1461023058943-07fcbe16d735"),
-        desc: { fr: "Glace, espresso, lait frais.", en: "Ice, espresso, fresh milk." }
-      },
-      {
-        name: "Cold Brew", price: "7", img: U("photo-1497935586351-b67a49e012bf"),
-        desc: { fr: "Infusé à froid 12h. Smooth.", en: "Cold-steeped for 12h. Smooth." }
-      },
-      {
-        name: "Frappé Caramel", price: "9", img: U("photo-1572442388796-11668a67e53d"),
-        desc: { fr: "Glacé, mixé, caramel par-dessus.", en: "Blended, iced, caramel on top." }
-      },
-      {
-        name: "Milkshake", price: "8", img: U("photo-1572490122747-3968b75cc699"),
-        desc: { fr: "Chocolat, vanille ou fraise.", en: "Chocolate, vanilla or strawberry." }
-      },
+      { name: "Eau 1L", price: "2,500" },
+      { name: "Eau 0.5L", price: "1,500" },
+      { name: "Soda", price: "3,000" },
+      { name: "Schweppes", price: "3,500" },
+      { name: "Orangina", price: "3,500" },
+      { name: "Citronnade", price: "3,500" },
+      { name: "Jus fraise", price: "5,000" },
+      { name: "Jus d'orange", price: "2,500" },
+      { name: "Mojito", price: "6,000" },
+      { name: "Ice macciato", price: "5,000" },
+      { name: "Frappuccino", price: "6,000" },
     ],
   },
   {
@@ -169,22 +152,11 @@ const CATEGORIES = [
     title: { fr: "Boissons chaudes", en: "Hot drinks" },
     cover: "https://res.cloudinary.com/a4pxy2z0/image/upload/v1792080821/hot-drinks.png",
     items: [
-      {
-        name: "Chocolat Chaud", price: "5", img: U("photo-1542990253-0d0f5be5f0ed"),
-        desc: { fr: "Riche, crémeux et réconfortant.", en: "Rich, creamy and comforting." }
-      },
-      {
-        name: "Thé à la menthe", price: "3", img: U("photo-1576092768241-dec231879fc3"),
-        desc: { fr: "Thé traditionnel infusé aux feuilles fraîches.", en: "Traditional tea infused with fresh mint." }
-      },
-      {
-        name: "Thé Vert", price: "3,5", img: U("photo-1627435601361-ec25f5b1d0e5"),
-        desc: { fr: "Doux et antioxydant.", en: "Smooth and antioxidant-rich." }
-      },
-      {
-        name: "Chai Latte", price: "6", img: U("photo-1578899952107-9c390f1af1b7"),
-        desc: { fr: "Épices chaudes, thé noir et lait soyeux.", en: "Warm spices, black tea and silky milk." }
-      },
+      { name: "Chocolat au lait/Nescafé", price: "3,000" },
+      { name: "Thé", price: "2,500" },
+      { name: "Kyufi", price: "2,500" },
+      { name: "Lait de poule", price: "5,000" },
+      { name: "Chocolat chaud", price: "5,000" },
     ],
   },
   {
@@ -192,26 +164,9 @@ const CATEGORIES = [
     title: { fr: "Sucré", en: "Sweets" },
     cover: "https://res.cloudinary.com/a4pxy2z0/image/upload/v1792080619/sweets.png",
     items: [
-      {
-        name: "Croissant", price: "3", img: U("photo-1555507036-ab1f4038808a"),
-        desc: { fr: "Pur beurre, doré, croustillant.", en: "All butter, golden, flaky." }
-      },
-      {
-        name: "Donut", price: "4", img: U("photo-1551024601-bec78aea704b"),
-        desc: { fr: "Glaçage et sprinkles.", en: "Glazed with sprinkles." }
-      },
-      {
-        name: "Cheesecake", price: "8", img: U("photo-1578985545062-69928b1d9587"),
-        desc: { fr: "Crémeux, coulis du moment.", en: "Creamy, seasonal topping." }
-      },
-      {
-        name: "Gâteau choco", price: "6", img: U("photo-1565958011703-44f9829ba187"),
-        desc: { fr: "Fondant, pour les accros au chocolat.", en: "Fudgy, for chocolate addicts." }
-      },
-      {
-        name: "Pâtisserie du jour", price: "4", img: U("photo-1509440159596-0249088772ff"),
-        desc: { fr: "Demande ce qui sort du four.", en: "Ask what just came out of the oven." }
-      },
+      { name: "Croissant", price: "1,500" },
+      { name: "Cake", price: "1,500" },
+      { name: "Crêpe Chocolat", price: "5,000" },
     ],
   },
   {
@@ -219,22 +174,10 @@ const CATEGORIES = [
     title: { fr: "Food & Salé", en: "Food" },
     cover: "https://res.cloudinary.com/a4pxy2z0/image/upload/v1792081103/food.png",
     items: [
-      {
-        name: "Club Sandwich", price: "8,5", img: U("photo-1528735602780-2552fd46c7af"),
-        desc: { fr: "Poulet, crudités, sauce maison.", en: "Chicken, fresh greens, homemade sauce." }
-      },
-      {
-        name: "Toast Avocat", price: "9", img: U("photo-1525351484163-7529414344d8"),
-        desc: { fr: "Pain de campagne, avocat écrasé, graines.", en: "Country bread, smashed avocado, seeds." }
-      },
-      {
-        name: "Panini Poulet", price: "7", img: U("photo-1619860860774-1e2e17343432"),
-        desc: { fr: "Chaud, fromage fondant, poulet mariné.", en: "Warm, melted cheese, marinated chicken." }
-      },
-      {
-        name: "Crêpe Salée", price: "8", img: U("photo-1519676867240-f03562e64548"),
-        desc: { fr: "Fromage, jambon ou thon au choix.", en: "Cheese, ham or tuna of your choice." }
-      },
+      { name: "Panini Jambon", price: "5,000" },
+      { name: "Panini Thon", price: "7,000" },
+      { name: "Crêpe Jambon", price: "7,000" },
+      { name: "Crêpe Spécial", price: "8,000" },
     ],
   },
   {
@@ -242,18 +185,8 @@ const CATEGORIES = [
     title: { fr: "Nouveau", en: "New" },
     cover: "https://res.cloudinary.com/a4pxy2z0/image/upload/v1792080729/new.png",
     items: [
-      {
-        name: "Frappé Caramel", price: "9", tag: "NEW", img: U("photo-1572442388796-11668a67e53d"),
-        desc: { fr: "Notre nouveau coup de cœur.", en: "Our new crush." }
-      },
-      {
-        name: "Cheesecake", price: "8", tag: "NEW", img: U("photo-1578985545062-69928b1d9587"),
-        desc: { fr: "Nouveau coulis chaque semaine.", en: "New topping every week." }
-      },
-      {
-        name: "Cold Brew", price: "7", tag: "NEW", img: U("photo-1497935586351-b67a49e012bf"),
-        desc: { fr: "À essayer absolument.", en: "A must-try." }
-      },
+      { name: "Mojito", price: "6,000" },
+      { name: "Frappuccino", price: "6,000" },
     ],
   },
   {
@@ -273,6 +206,30 @@ const CATEGORIES = [
     cover: "https://res.cloudinary.com/a4pxy2z0/image/upload/v1792081506/instagram.png",
     items: [],
   },
+];
+
+const MENU_ONLY_CATEGORIES = [
+  {
+    key: "formules",
+    title: { fr: "Formules", en: "Combos" },
+    items: [
+      { name: "Café croissant eau", price: "5,000" },
+      { name: "Citronnade Panini", price: "5,000" },
+      { name: "Formule", price: "8,500" },
+    ],
+  },
+  {
+    key: "jeux",
+    title: { fr: "Jeux", en: "Games" },
+    items: [
+      { name: "Uno", price: "2,000" },
+    ],
+  },
+];
+
+const SUPPLEMENTS = [
+  { name: "Dose Arome", price: "1,000" },
+  { name: "Nestlé", price: "1,000" },
 ];
 
 /* ---------- Temporarily hidden categories (vibe & hours) ----------

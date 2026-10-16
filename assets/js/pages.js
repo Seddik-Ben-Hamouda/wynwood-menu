@@ -1,31 +1,44 @@
 /* Inner pages: category pages (coffee, cold, sweets, new), menu, hours, address, about */
 const page = document.body.dataset.page;
 const main = document.getElementById("main");
-const getCat = (k) => CATEGORIES.find((c) => c.key === k);
-const TABS = ["coffee", "cold", "hot", "sweets", "food", "new"];
+const MAIN_TABS = ["coffee", "cold", "hot", "sweets", "food", "new"];
+const MENU_ONLY_TABS = MENU_ONLY_CATEGORIES.map((c) => c.key);
+const getCat = (k) => [...CATEGORIES, ...MENU_ONLY_CATEGORIES].find((c) => c.key === k);
 
-const card = (it) => `
-  <article class="item">
-    <div class="item-pic"><img alt="${it.name}" data-src="${it.img.replace("w=900&h=1440", "w=500&h=500")}">
-      ${it.tag ? `<b class="tag">${it.tag}</b>` : ""}</div>
-    <div class="item-body"><h3>${it.name}</h3><p>${t(it.desc)}</p></div>
-    ${it.price ? `<span class="price">${it.price}<small>${ui("tnd")}</small></span>` : ""}
-  </article>`;
+const card = (it) => {
+  const image = it.img
+    ? `<div class="item-pic"><img alt="${it.name}" data-src="${it.img.replace("w=900&h=1440", "w=500&h=500")}">
+      ${it.tag ? `<b class="tag">${it.tag}</b>` : ""}</div>`
+    : "";
+  const description = it.desc ? `<p>${t(it.desc)}</p>` : "";
+  const price = it.price == null
+    ? `<span class="price price-tbc">${ui("priceTbc")}</span>`
+    : `<span class="price">${it.price}<small>${ui("tnd")}</small></span>`;
+  return `<article class="item${image ? "" : " item-plain"}">${image}
+    <div class="item-body"><h3>${it.name}</h3>${description}</div>${price}</article>`;
+};
 
-const group = (c, withTitle) => `<section class="group" id="${c.key}">
-  ${withTitle ? `<h2>${t(c.title)}</h2>` : ""}<div class="items">${c.items.map(card).join("")}</div></section>`;
+const group = (c, withTitle, withSupplements = false) => `<section class="group" id="${c.key}">
+  ${withTitle ? `<h2>${t(c.title)}</h2>` : ""}<div class="items">${c.items.map(card).join("")}</div>
+  ${withSupplements ? `<h2 class="supplements-title" id="supplements">${ui("supplements")}</h2><div class="items">${SUPPLEMENTS.map(card).join("")}</div>` : ""}
+  </section>`;
 
 function tabs() {
   const link = (href, label, on) => `<a class="tab${on ? " on" : ""}" href="${href}">${label}</a>`;
   return `<nav class="tabs" aria-label="${ui("categoriesLabel")}">` +
-    link("menu.html", ui("all"), page === "menu") +
-    TABS.map((k) => link(`${k}.html`, t(getCat(k).title), page === k)).join("") + `</nav>`;
+    link("menu.html", ui("all"), page === "menu" && !location.hash) +
+    MAIN_TABS.map((k) => link(`${k}.html`, t(getCat(k).title), page === k)).join("") +
+    MENU_ONLY_TABS.map((k) => link(`menu.html#${k}`, t(getCat(k).title), page === "menu" && location.hash === `#${k}`)).join("") +
+    `</nav>`;
 }
 
 function render() {
   const key = { menu: null, coffee: "coffee", cold: "cold", hot: "hot", sweets: "sweets", food: "food", new: "new", hours: "hours", address: "find", about: "vibe" }[page];
   const cat = key ? getCat(key) : null;
-  const title = cat ? t(cat.title) : ui("menuTitle");
+  const menuCategory = page === "menu"
+    ? MENU_ONLY_CATEGORIES.find((category) => `#${category.key}` === location.hash)
+    : null;
+  const title = menuCategory ? t(menuCategory.title) : cat ? t(cat.title) : ui("menuTitle");
   document.title = `${title} | ${SHOP.name}`;
 
   /* ── Hours: full-screen image only ── */
@@ -78,11 +91,14 @@ function render() {
   let html = `<header class="phead"><a class="back" href="../index.html">${ui("back")}</a>
     <button id="langBtn" class="lang">${ui("lang")}</button></header>`;
 
-  const isMenu = page === "menu" || TABS.includes(page);
+  const isMenu = page === "menu" || MAIN_TABS.includes(page);
   if (isMenu) {
-    html += `<div class="hero">${cat ? `<span class="hero-pic"><img alt="" data-src="${cat.cover}"></span>` : `<span class="hero-pic"><img alt="" data-src="${IMAGES.logo.src}"></span>`}
-      <h1 class="ptitle">${title}</h1></div>${tabs()}`;
-    html += page === "menu" ? ["coffee", "cold", "hot", "sweets", "food"].map((k) => group(getCat(k), true)).join("") : group(cat, false);
+    html += tabs();
+    html += page === "menu"
+      ? (menuCategory
+        ? group(menuCategory, true)
+        : [...MAIN_TABS, ...MENU_ONLY_TABS].map((k) => group(getCat(k), true, k === "hot")).join(""))
+      : group(cat, false, ["coffee", "cold", "hot"].includes(page));
     html += `<p class="note">${ui("prices")}</p>`;
   } else {
     html += `<h1 class="ptitle solo">${title}</h1>`;
@@ -93,4 +109,5 @@ function render() {
   document.getElementById("langBtn").onclick = toggleLang;
 }
 document.addEventListener("langchange", render);
+window.addEventListener("hashchange", render);
 render();
