@@ -1,5 +1,6 @@
 @import url("fonts.css");
 
+body.home{background:var(--cream) url("../img/background.png") center/cover fixed no-repeat}
 .phone{width:100%;max-width:520px;min-height:100svh;padding:env(safe-area-inset-top) 20px calc(32px + env(safe-area-inset-bottom))}
 
 /* ---------- header ---------- */
