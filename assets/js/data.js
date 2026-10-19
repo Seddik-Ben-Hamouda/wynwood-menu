@@ -127,24 +127,29 @@ const CATEGORIES = [
       { name: "Américain", price: "2,800" },
       { name: "Cappucin", price: "3,300" },
       { name: "Direct", price: "3,500" },
-    ],
+      { name: "Vanilla latte", price: "4,500" },
+      { name: "Cinnamon latte", price: "4,500" },
+    ]
   },
   {
     key: "cold", style: "blue", page: "pages/cold.html",
     title: { fr: "Boissons froides", en: "Cold drinks" },
     cover: "https://res.cloudinary.com/a4pxy2z0/image/upload/v1792090477/cold-drinks.png",
     items: [
-      { name: "Eau 1L", price: "2,500" },
-      { name: "Eau 0.5L", price: "1,500" },
+      { name: "Ice Spanish Latte", price: "6,000" },
+      { name: "Iced Tea", price: "5,000" },
       { name: "Soda", price: "3,000" },
       { name: "Schweppes", price: "3,500" },
       { name: "Orangina", price: "3,500" },
+      { name: "Mojito", price: "6,000" },
       { name: "Citronnade", price: "3,500" },
       { name: "Jus fraise", price: "5,000" },
       { name: "Jus d'orange", price: "2,500" },
-      { name: "Mojito", price: "6,000" },
-      { name: "Ice macciato", price: "5,000" },
-      { name: "Frappuccino", price: "6,000" },
+     
+      { name: "Eau 1L", price: "2,500" },
+      { name: "Eau 0.5L", price: "1,500" },
+
+      
     ],
   },
   {
@@ -153,10 +158,10 @@ const CATEGORIES = [
     cover: "https://res.cloudinary.com/a4pxy2z0/image/upload/v1792080821/hot-drinks.png",
     items: [
       { name: "Chocolat au lait/Nescafé", price: "3,000" },
+      { name: "Chocolat chaud", price: "5,000" },
       { name: "Thé", price: "2,500" },
       { name: "Kyufi", price: "2,500" },
-      { name: "Lait de poule", price: "5,000" },
-      { name: "Chocolat chaud", price: "5,000" },
+      
     ],
   },
   {
@@ -175,9 +180,11 @@ const CATEGORIES = [
     cover: "https://res.cloudinary.com/a4pxy2z0/image/upload/v1792081103/food.png",
     items: [
       { name: "Panini Jambon", price: "5,000" },
-      { name: "Panini Thon", price: "7,000" },
-      { name: "Crêpe Jambon", price: "7,000" },
+      { name: "Panini Thon", price: "6,000" },
+      { name: "Crêpe Jambon", price: "6,000" },
       { name: "Crêpe Spécial", price: "8,000" },
+      { name: "croque-monsieur", price: "5,000" },
+      { name: "croque-madame", price: "5,000" },
     ],
   },
   {
@@ -216,13 +223,6 @@ const MENU_ONLY_CATEGORIES = [
       { name: "Café croissant eau", price: "5,000" },
       { name: "Citronnade Panini", price: "5,000" },
       { name: "Formule", price: "8,500" },
-    ],
-  },
-  {
-    key: "jeux",
-    title: { fr: "Jeux", en: "Games" },
-    items: [
-      { name: "Uno", price: "2,000" },
     ],
   },
 ];
