@@ -192,8 +192,8 @@ const CATEGORIES = [
     title: { fr: "Nouveau", en: "New" },
     cover: "https://res.cloudinary.com/a4pxy2z0/image/upload/v1792080729/new.png",
     items: [
-      { name: "Mojito", price: "6,000" },
-      { name: "Frappuccino", price: "6,000" },
+      { name: "Chocolat chaud", price: "5,000" },
+      { name: "Toast", price: "5,000" },
     ],
   },
   {
