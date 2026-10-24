@@ -184,7 +184,7 @@ const CATEGORIES = [
       { name: "Crêpe Jambon", price: "6,000" },
       { name: "Crêpe Spécial", price: "8,000" },
       { name: "croque-monsieur", price: "5,000" },
-      { name: "croque-madame", price: "5,000" },
+      { name: "croque-madame", price: "6,000" },
     ],
   },
   {
