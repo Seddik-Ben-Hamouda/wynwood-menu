@@ -171,7 +171,8 @@ const CATEGORIES = [
     items: [
       { name: "Croissant", price: "1,500" },
       { name: "Cake", price: "1,500" },
-      { name: "Crêpe Chocolat", price: "5,000" },
+      { name: "Fondant", price: "5,000" },
+      { name: "Crème chocolate café", price: "7,000" },
     ],
   },
   {
